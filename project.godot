@@ -21,7 +21,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Metroidvania"
-run/main_scene="res://PlayerCharacter.tscn"
+run/main_scene="res://MainScene.tscn"
 
 [gdnative]
 
