@@ -10,7 +10,7 @@ var attackNum : int = 1
 var attackAnim = null
 var vel = Vector2()
 onready var sprite : AnimatedSprite = get_node("AnimatedSprite")
-onready var lb = get_node("/root/MainScene/Enemy")
+onready var lb = get_node("/root/StartScene/Enemy")
 
 func _ready():
 	$AnimatedSprite.play("Idle")

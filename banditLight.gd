@@ -18,7 +18,7 @@ onready var LBanditsprite : AnimatedSprite = get_node("AnimatedSprite")
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$AnimatedSprite.play("idle")
-	pc = get_node("/root/MainScene/PlayerCharacter")
+	pc = get_node("/root/StartScene/PlayerCharacter")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
