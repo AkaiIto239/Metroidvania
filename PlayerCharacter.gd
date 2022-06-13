@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
 var health : float = 10.0
-var damage : float = 3.0
+var damage : float
 var speed : int = 150
 var jumpForce : int = 250
 var gravity : int = 500
@@ -70,6 +70,10 @@ func attack():
 	attacking = true
 	vel.x = 0
 	$AnimatedSprite.play(attackAnim)
+	if $AnimatedSprite.animation == "LightAttack1" || $AnimatedSprite.animation == "LightAttack2":
+		damage = 3.0
+	else:
+		damage = 5.0
 	$Hitbox/AttackHitbox.set_deferred("disabled", false)
 	if sprite.flip_h == false:
 		self.position += Vector2(2,0)
@@ -98,8 +102,7 @@ func _on_AnimatedSprite_animation_finished():
 	#	$AnimatedSprite.stop()
 	#	$AnimatedSprite.play("Idle")
 
-
-func _on_PlayerHitbox_body_entered(body):
-	if body.is_in_group("LBanditSword"):
+func _on_PlayerHitbox_area_entered(area):
+	if area.is_in_group("LBanditSword"):
 		health -= lb.LBandit_damage
 		print(health)

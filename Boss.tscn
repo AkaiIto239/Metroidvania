@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=2]
+[gd_scene load_steps=58 format=2]
 
 [ext_resource path="res://Assets/Enemy character sprite/Boss/Sprites/Idle.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Enemy character sprite/Boss/Sprites/Attack1.png" type="Texture" id=2]
@@ -280,14 +280,25 @@ animations = [ {
 radius = 12.0
 height = 24.0
 
+[sub_resource type="CapsuleShape2D" id=50]
+radius = 12.0
+height = 32.0
+
 [node name="KinematicBody2D" type="KinematicBody2D"]
 script = ExtResource( 7 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 48 )
-animation = "idle"
+animation = "attack"
+frame = 4
 flip_h = true
 
 [node name="MainCollision" type="CollisionShape2D" parent="."]
 position = Vector2( -3, 2 )
 shape = SubResource( 49 )
+
+[node name="AttackHitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackHitbox"]
+position = Vector2( -28, -4 )
+shape = SubResource( 50 )

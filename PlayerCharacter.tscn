@@ -646,10 +646,12 @@ frames = SubResource( 112 )
 animation = "Idle"
 
 [node name="MainCollision" type="CollisionShape2D" parent="." groups=["Player"]]
+visible = false
 position = Vector2( -12, 2 )
 shape = SubResource( 113 )
 
 [node name="PlayerHitbox" type="Area2D" parent="." groups=["Player"]]
+visible = false
 collision_mask = 3
 monitoring = false
 
@@ -658,7 +660,7 @@ position = Vector2( -12, 2 )
 shape = SubResource( 113 )
 
 [node name="Hitbox" type="Area2D" parent="." groups=["Sword"]]
-position = Vector2( -52, -13 )
+position = Vector2( -12, -13 )
 
 [node name="AttackHitbox" type="CollisionShape2D" parent="Hitbox"]
 position = Vector2( 20, 15 )
@@ -672,5 +674,5 @@ one_shot = true
 wait_time = 0.5
 
 [connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
-[connection signal="body_entered" from="PlayerHitbox" to="." method="_on_PlayerHitbox_body_entered"]
+[connection signal="area_entered" from="PlayerHitbox" to="." method="_on_PlayerHitbox_area_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
