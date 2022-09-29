@@ -9,4 +9,4 @@ func _ready():
 
 func _on_NextStage_body_entered(body):
 	if body.is_in_group("Player"):
-		get_tree().change_scene("res://BossLevel.tscn")
+		nextScene = get_tree().change_scene("res://BossLevel.tscn")

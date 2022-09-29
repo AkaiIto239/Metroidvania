@@ -50,13 +50,18 @@ func logic():
 				$AttackHitbox/AttackCollision.position = Vector2(17,0)
 	elif health < health*0.4 and LBandit_attacking == false and LBandit_detected == true:
 		LBandit_speed = 35
+		$Actiontimer.start(3)
 		if randomNumber < 4:
-			pass
+			print(randomNumber)
+			while $Actiontimer.time_left > 0:
+				if $Actiontimer.time_left == 3 or $Actiontimer.time_left == 1:
+					LBandit_vel = move_and_slide(Vector2(-2,0) * LBandit_speed)
+				elif $Actiontimer.time_left == 2:
+					LBandit_vel = move_and_slide(Vector2(2,0) * LBandit_speed)
 		else: 
 			if pc:
-				var direction = (pc.position - self. position).normalized()
-				if LBandit_attacking == false:
-				# warning-ignore:return_value_discarded
+				var direction = (pc.position - self.position).normalized()
+				if !LBandit_attacking:
 					LBandit_vel = move_and_slide(Vector2(direction.x,0) * LBandit_speed)
 				if direction.x < 0:
 					LBanditsprite.flip_h = false

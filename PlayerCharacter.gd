@@ -75,10 +75,10 @@ func attack():
 	else:
 		damage = 5.0
 	$Hitbox/AttackHitbox.set_deferred("disabled", false)
-	if sprite.flip_h == false:
-		self.position += Vector2(2,0)
-	else:
+	if sprite.flip_h:
 		self.position -= Vector2(2,0)
+	else:
+		self.position += Vector2(2,0)
 	yield($AnimatedSprite,"animation_finished")
 	attacking = false
 	$Hitbox/AttackHitbox.set_deferred("disabled", true)

@@ -40,6 +40,7 @@ position = Vector2( -18, 300.5 )
 shape = SubResource( 1 )
 
 [node name="NextStage" type="Area2D" parent="."]
+visible = false
 collision_layer = 0
 script = ExtResource( 4 )
 
